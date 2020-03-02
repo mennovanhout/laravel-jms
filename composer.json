@@ -1,0 +1,37 @@
+{
+    "name": "mennovanhout/laravel-jms",
+    "description": "Adds jms serializer to Laravel",
+    "type": "library",
+    "keywords": [
+        "Laravel",
+        "JMS",
+        "Serializer"
+    ],
+    "version": "0.1.1",
+    "require": {
+        "jms/serializer": "^3.5",
+        "doctrine/cache": "^1.10"
+    },
+    "minimum-stability": "dev",
+    "authors": [
+        {
+            "name": "Menno van Hout",
+            "email": "info@mennovanhout.nl"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "MennoVanHout\\JMS\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "MennoVanHout\\JMS\\JMSServiceProvider"
+            ],
+            "aliases": {
+                "Serializer": "MennoVanHout\\JMS\\Facade"
+            }
+        }
+    }
+}
