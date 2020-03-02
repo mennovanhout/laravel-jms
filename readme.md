@@ -37,7 +37,10 @@ class PaymentDTO
      */
     private $title;
 
-    public function getTitle()
+    /**
+     * @return string
+     */
+    public function getTitle(): string
     {
         return $this->title;
     }
