@@ -11,5 +11,5 @@ composer require mennovanhout/laravel-jms
 ## Usage
 
 ```
-coming soon
+$serializer = app(Serializer::class);
 ```
