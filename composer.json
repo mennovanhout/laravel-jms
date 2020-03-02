@@ -2,6 +2,7 @@
     "name": "mennovanhout/laravel-jms",
     "description": "Adds jms serializer to Laravel",
     "type": "library",
+    "license": "MIT",
     "keywords": [
         "Laravel",
         "JMS",
