@@ -14,4 +14,16 @@ return [
     */
 
     'cache' => storage_path('app/jms/cache'),
+
+    /*
+    |--------------------------------------------------------------------------
+    | Custom handlers
+    |--------------------------------------------------------------------------
+    |
+    | Handlers allow you to change the serialization, or deserialization process for a single type/format combination.
+    | Add each custom handler in the array below:
+    */
+    'handlers'    => [
+
+    ],
 ];

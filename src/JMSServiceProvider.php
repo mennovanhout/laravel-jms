@@ -71,6 +71,8 @@ class JMSServiceProvider extends ServiceProvider
                 ->setPropertyNamingStrategy(new SerializedNameAnnotationStrategy(new IdenticalPropertyNamingStrategy()))
                 ->addDefaultHandlers();
 
+            $this->registerCustomHandlers($serializer, config('jms.handlers'));
+
             return $serializer->build();
         });
 
@@ -85,5 +87,15 @@ class JMSServiceProvider extends ServiceProvider
         $this->commands([
             ClearCacheCommand::class
         ]);
+    }
+
+    protected function registerCustomHandlers(SerializerBuilder $serializer, array $handlers)
+    {
+        foreach ($handlers as $handler)
+        {
+            $serializer->configureHandlers(function(HandlerRegistry $registry) use ($handler){
+                $registry->registerSubscribingHandler(new $handler());
+            });
+        }
     }
 }
