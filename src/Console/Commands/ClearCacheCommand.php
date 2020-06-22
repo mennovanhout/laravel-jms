@@ -42,8 +42,8 @@ class ClearCacheCommand extends Command
     {
         $directory = config('jms.cache');
 
-        if (File::exists($directory)) {
-            File::deleteDirectory($directory);
+        if (File::exists(storage_path($directory))) {
+            File::deleteDirectory(storage_path($directory));
         }
 
         $this->info('JMS cache cleared!');

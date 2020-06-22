@@ -1,5 +1,5 @@
 {
-    "name": "mennovanhout/laravel-jms",
+    "name": "motivo-zwolle/laravel-jms",
     "description": "Adds jms serializer to Laravel",
     "type": "library",
     "license": "MIT",
