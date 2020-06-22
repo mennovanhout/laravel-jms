@@ -8,7 +8,7 @@
         "JMS",
         "Serializer"
     ],
-    "version": "0.2.6",
+    "version": "0.2.7",
     "require": {
         "jms/serializer": "^3.5",
         "doctrine/cache": "^1.10"
