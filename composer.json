@@ -8,10 +8,10 @@
         "JMS",
         "Serializer"
     ],
-    "version": "0.2.3",
+    "version": "0.3.0",
     "require": {
-        "jms/serializer": "^3.5",
-        "doctrine/cache": "^1.10"
+        "jms/serializer": "^3.18.2",
+        "doctrine/cache": "^2.2.0"
     },
     "minimum-stability": "dev",
     "authors": [

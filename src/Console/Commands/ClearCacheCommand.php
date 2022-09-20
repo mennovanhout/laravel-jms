@@ -4,6 +4,7 @@
 namespace MennoVanHout\JMS\Console\Commands;
 
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 
 class ClearCacheCommand extends Command
@@ -41,8 +42,8 @@ class ClearCacheCommand extends Command
     {
         $directory = config('jms.cache');
 
-        if (count(Storage::allFiles($directory))) {
-            Storage::deleteDirectory($directory);
+        if (File::exists($directory)) {
+            File::deleteDirectory($directory);
         }
 
         $this->info('JMS cache cleared!');

@@ -14,12 +14,7 @@ use MennoVanHout\JMS\Console\Commands\ClearCacheCommand;
 
 class JMSServiceProvider extends ServiceProvider
 {
-    /**
-     * Register services.
-     *
-     * @return void
-     */
-    public function register()
+    public function register(): void
     {
         $this->mergeConfig();
         $this->registerAnnotations();
@@ -27,21 +22,13 @@ class JMSServiceProvider extends ServiceProvider
         $this->registerCommands();
     }
 
-    /**
-     * Bootstrap services.
-     *
-     * @return void
-     */
-    public function boot()
+    public function boot(): void
     {
         $this->publishes([
             __DIR__ . '/../config/jms.php' => config_path('jms.php'),
         ], 'config');
     }
 
-    /**
-     * Merge config
-     */
     protected function mergeConfig()
     {
         $this->mergeConfigFrom(
@@ -50,9 +37,6 @@ class JMSServiceProvider extends ServiceProvider
         );
     }
 
-    /**
-     * Register serializer annotations
-     */
     protected function registerAnnotations()
     {
         // RegisterLoader is deprecated because this will be removed in Doctrine/Annotations 2.0.
@@ -60,15 +44,12 @@ class JMSServiceProvider extends ServiceProvider
         AnnotationRegistry::registerLoader('class_exists');
     }
 
-    /**
-     * Register the serializer
-     */
     protected function registerSerializer()
     {
         $this->app->singleton(Serializer::class, function ($app) {
             $serializer = SerializerBuilder::create()
                 ->setDebug(config('app.debug'))
-                ->setCacheDir(config('jms.cache'))
+//                ->setCacheDir(config('jms.cache')) <---- Disabled caching because of JMS incompatibility
                 ->setPropertyNamingStrategy(new SerializedNameAnnotationStrategy(new IdenticalPropertyNamingStrategy()))
                 ->addDefaultHandlers();
 
@@ -80,9 +61,6 @@ class JMSServiceProvider extends ServiceProvider
         $this->app->bind(SerializerInterface::class, Serializer::class);
     }
 
-    /**
-     * Register Commands
-     */
     protected function registerCommands()
     {
         $this->commands([
